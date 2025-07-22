@@ -14,6 +14,9 @@ def get_float(prompt) -> float:
         try:
             out = input(prompt)
 
+            if len(out) > 0 and "-" in out and out[0] != '-':
+                raise ValueError
+
             if not out.replace(".", "", 1).replace("-", '', 1).isdigit():
                 raise ValueError
 
